@@ -1,34 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>User Signup</h1>
-
 <form  action="/welcome" name='user_info_form' method="POST",>
     <label for='user-name'>
         Create your username:
-        <input id='user-name' type='text' name='user-name'>
-        <p class='error'>{{user_name_error}}</p>
-
-    </label>
+        <input id='user-name' type='text' name='user-name' value='{{user_name}}'>
+        {% if user_name_error %}
+            <p class='error'>{{user_name_error}}</p>
+        {% endif %}
+    </label><br>
 
     <label for='create-pw'>
         Create your password:
         <input id='create-pw' type='password' name='create-pw'>
-        <p class='error'>{{create_pw_error}}</p>
-    </label>
+        {% if create_pw_error %}
+            <p class='error'>{{create_pw_error}}</p>
+        {% endif %}
+    </label><br>
 
     <label for='confirm-pw'>
         Confirm your password:
         <input id='confirm-pw' type='password' name='confirm-pw'>
-        <p class='error'>{{confirm_pw_error}}</p>
-    </label>
+        {% if confirm_pw_error %}
+            <p class='error'>{{confirm_pw_error}}</p>
+        {% endif %}
+    </label><br>
 
     <label for='enter-email'>
         Enter your Email address:
-        <input id='enter-email' type='text' name='enter-email'>
-        <p class='error'>{{enter_email_error}}</p>
-    </label>
+        <input id='enter-email' type='text' name='enter-email' value='{{enter_email}}'>
+        {% if enter_email_error %}
+            <p class='error'>{{enter_email_error}}</p>
+        {% endif %}
+    </label><br>
 
     <input type='submit' value='Submit'>
 </form>
